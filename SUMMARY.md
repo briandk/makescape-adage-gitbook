@@ -1,6 +1,6 @@
 # Summary
 
-* [What is Oztoc?](what_is_oztoc/README)
-* [Tools we use](tools_we_use/README)
-* [Data Analysis](data_analysis/README)
+* [What is Oztoc?](what_is_oztoc/README.md)
+* [Tools we use](tools_we_use/README.md)
+* [Data Analysis](data_analysis/README.md)
 
