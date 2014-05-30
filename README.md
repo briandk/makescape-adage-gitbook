@@ -5,11 +5,11 @@ In this book we walk you through a short analysis of some actual play data colle
 What is Oztoc?
 --------------
 
-![Newspaper headline that reads "New Species Discovered"](../assets/NewSpeciesDiscovered.jpg)
+![Newspaper headline that reads "New Species Discovered"](./assets/NewSpeciesDiscovered.jpg)
 
 An expedition in Mexico reveals an uncharted lagoon teeming with life, and it's up to junior explorers to learn more about its mysteries. Enter Oztoc: an immersive world where children design circuits to lure bioluminescent creatures from the deep. The game is a first-of-its kind museum installation, combining a state-of-the-art multitouch tabletop display with tactile physical blocks. The result is a hybrid museum game where students touch physical blocks to create virtual in-game circuits.
 
-![Image of the Oztoc table at NYSCI](../assets/table1.jpg)
+![Image of the Oztoc table at NYSCI](./assets/table1.jpg)
 
 *Image Credit: Insider Images/Andrew Kelly*
 
