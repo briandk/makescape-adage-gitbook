@@ -1,4 +1,4 @@
-# Data Analysis.
+# Data Analysis
 
 Here, we'll describe how we analyze the data. What you'll see are actual code snippets, like this:
 
@@ -10,4 +10,4 @@ And, where appropriate, the output that follows:
 
 *Hello, World!*
 
-Dive on in.
+Everything you see was generated in an iPython Notebook.
