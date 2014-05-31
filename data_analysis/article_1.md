@@ -2,7 +2,7 @@
 
 From a fresh iPython Notebook, we'll load some required libraries and set some global options. As a reminder, all of the libraries we're using come included out-of-the-box with the freely available [Enthought Canopy Express](https://www.enthought.com/canopy-express/) Python environment.
 
-## Loading Dependencies
+### Loading Dependencies
 
 In a new iPython Notebook:
 
@@ -21,7 +21,7 @@ pd.set_option('display.mpl_style', 'default')
 filepath = "2014-05-13 makescape playtest.json"
 ```
 
-## Loading and Sorting the Data
+### Loading and Sorting the Data
 
 ```python
 def loadDataSortedByTimestamp(filepath):
@@ -33,6 +33,6 @@ def loadDataSortedByTimestamp(filepath):
 ms = loadDataSortedByTimestamp(filepath)
 ```
 
-## Inspecting the Data
+### Inspecting the Data
 
 Now that our data is loaded with the variable `ms` (I chose it as an abbreviation of MakeScape), let's look at it and make sure it's sane. One of the first things I'll do is check the list of columns that our data comes with.
