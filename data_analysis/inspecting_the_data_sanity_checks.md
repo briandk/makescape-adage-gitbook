@@ -67,6 +67,50 @@ columns = ['key', 'timestamp']
 ms.head(n=5)[columns]
 ```
 
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;">key</th>
+	<th style="text-align:left;">timestamp</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">0</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398178271860</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398190767768</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398191616469</td>
+</tr>
+<tr>
+	<td style="text-align:left;">3</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398192512628</td>
+</tr>
+<tr>
+	<td style="text-align:left;">4</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398192887546</td>
+</tr>
+</tbody>
+</table>
+
 
 
 
