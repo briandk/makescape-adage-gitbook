@@ -111,5 +111,5 @@ p = msdata['timestamp'].plot(kind='bar')
 print(p)
 ```
 
-![Bar chart of events by type](./assets/barChart1.png)
+![Bar chart of events by type](../assets/barChart1.png)
 
