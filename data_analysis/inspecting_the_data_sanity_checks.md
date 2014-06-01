@@ -1,60 +1,34 @@
 # Inspecting the Data (Sanity Checks)
 
-### Checking Data Columns
+### How Much Data Is There?
 
 Now that our data is loaded with the variable `ms` (I chose it as an abbreviation of MakeScape), let's look at it and make sure it's sane. One of the first things I'll do is check the list of columns that our data comes with.
 
 ```python
-list(ms.columns)
+ms.columns
 ```
 
 Which gives us the output
 
 ```python
-[u'_id',
- u'ada_base_types',
- u'adage_version',
- u'application_name',
- u'application_version',
- u'board_mode',
- u'component_list',
- u'created_at',
- u'deviceInfo',
- u'fish',
- u'fish_list',
- u'game',
- u'game_id',
- u'key',
- u'mode_name',
- u'num_batteries',
- u'num_leds',
- u'num_resistors',
- u'num_timers',
- u'player_name',
- u'player_names',
- u'playspace_id',
- u'playspace_ids',
- u'reason',
- u'resistance',
- u'session_token',
- u'timed_out',
- u'timestamp',
- u'updated_at',
- u'user_id',
- u'virtual_context',
- u'visability_mode',
- u'voltage',
- 'delta1',
- 'delta2',
- 'delta3',
- 'delta4']
+Index([u'_id', u'ada_base_types', u'adage_version', u'application_name', u'application_version', u'board_mode', u'component_list', u'created_at', u'deviceInfo', u'fish', u'fish_list', u'game', u'game_id', u'key', u'mode_name', u'num_batteries', u'num_leds', u'num_resistors', u'num_timers', u'player_name', u'player_names', u'playspace_id', u'playspace_ids', u'reason', u'resistance', u'session_token', u'timed_out', u'timestamp', u'updated_at', u'user_id', u'virtual_context', u'visability_mode', u'voltage', u'human-readable-timestamps', u'human-readable-timestamp'], dtype='object')
 ```
 
-Whoa! That is [alot of columns](http://hyperboleandahalf.blogspot.com/2010/04/alot-is-better-than-you-at-everything.html). 33 columns, to be exact. We can check that by calling Python's function for determining the length of a collection:
+Whoa! That is [alot of columns](http://hyperboleandahalf.blogspot.com/2010/04/alot-is-better-than-you-at-everything.html). 33 columns, to be exact. You might also be wondering why each column name starts with a "u," as in `u'num_leds'` and `u'_id`. That's actually because internally, [Python is representing those strings as Unicode strings](http://www.diveintopython3.net/strings.html#one-ring-to-rule-them-all) and it's [letting us know](https://docs.python.org/2/howto/unicode.html#the-unicode-type).
+
+We can check the number of columns by calling Python's function for determining the length of a collection:
 
 ```python
 len(ms.columns) # returns 33
 ```
+
+But we should also check how many rows (in this case, how many distinct gameplay events) we have in our dataset.
+
+```python
+len(ms) # returns 8505
+```
+
+Phew! 8505 rows of data.
 
 ### Checking the First Few Rows
 
@@ -111,6 +85,67 @@ ms.head(n=5)[columns]
 </tbody>
 </table>
 
+What's less-than-helpful right now is that those timestamps are just raw integers. We want to make sure those integers actually represent times when data could reasonably have been collected (and not, say, January of the year 47532, which actually happened once).
 
+Thankfully, pandas comes with a function that can convert UNIX Epoch Time integers into human-recognizable dates. In this case, what we'll do is create a new column called `human-readable-timestamps` by applying the pandas `Timestamp()` function to our existing integers. Then we'll check the data.
+
+```python
+ms['human-readable-timestamp'] = ms.timestamp.apply(lambda x: pd.Timestamp(x, unit='ms'))
+columns = ['key', 'timestamp', 'human-readable-timestamp']
+ms[columns].head()
+```
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;">key</th>
+	<th style="text-align:left;">timestamp</th>
+	<th style="text-align:left;">human-readable-timestamp</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">0</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398178271860</td>
+	<td style="text-align:left;">2014&#8211;04&#8211;22 14:51:11.860000</td>
+</tr>
+<tr>
+	<td style="text-align:left;">1</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398190767768</td>
+	<td style="text-align:left;">2014&#8211;04&#8211;22 18:19:27.768000</td>
+</tr>
+<tr>
+	<td style="text-align:left;">2</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398191616469</td>
+	<td style="text-align:left;">2014&#8211;04&#8211;22 18:33:36.469000</td>
+</tr>
+<tr>
+	<td style="text-align:left;">3</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398192512628</td>
+	<td style="text-align:left;">2014&#8211;04&#8211;22 18:48:32.628000</td>
+</tr>
+<tr>
+	<td style="text-align:left;">4</td>
+	<td style="text-align:left;">ADAGEStartSession</td>
+	<td style="text-align:left;">1398192887546</td>
+	<td style="text-align:left;">2014&#8211;04&#8211;22 18:54:47.546000</td>
+</tr>
+</tbody>
+</table>
+
+Looking good! Our data seems to have loaded sensibly, and now it's time for some basic analysis.
 
 
