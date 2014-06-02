@@ -39,3 +39,9 @@ ggsave(plot=p,
 ```
 
 ![Cumulative Distribution of MakeComponentConnect Events](../assets/cumulativeDistributionOfMakeConnectComponent1.png)
+
+This plot has a number of interesting features. Easily the most salient feature is the giant flat-line in the center. It looks like there were effectively no `MakeConnectComponent` events between between 2000 hrs on the first day and 1400 hrs on the second day. And that seems entirely reasonable: the game likely would have been shut off during the night, then fired up again for testing the next day.
+
+The challenge is that on either side of the flatline the curves are quite steep. That means there could be a fair amount of information hiding in the areas of the plot where there was activity, but it's up to us to extract out that long, boring middle portion where nothing is happening. How can we do that?
+
+Well, suppose what we wanted was to create two new plots, call them Day 1 and Day 2, that have just the interesting parts: the parts where the slope of the cumulative distribution is nonzero. (Note that when the slope is nonzero, that's when action is happening and we're registering events over time.) If we wanted two separate plots, all we have to is figure out when, exactly, that boring stretch of time starts and when, exactly, it ends. And, one way to do that would be if we could somehow generate the time that elapses between each successive event in our dataset. So, let's do it!
