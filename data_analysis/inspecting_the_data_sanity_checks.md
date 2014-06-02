@@ -1,8 +1,8 @@
-# Inspecting the Data (Sanity Checks)
+# Inspecting the Data
 
 ### How Much Data Is There?
 
-Now that our data is loaded with the variable `ms` (I chose it as an abbreviation of MakeScape), let's look at it and make sure it's sane. One of the first things I'll do is check the list of columns that our data comes with.
+One of the first things I'll do is check the list of columns that our data comes with.
 
 ```python
 ms.columns
@@ -14,9 +14,9 @@ Which gives us the output
 Index([u'_id', u'ada_base_types', u'adage_version', u'application_name', u'application_version', u'board_mode', u'component_list', u'created_at', u'deviceInfo', u'fish', u'fish_list', u'game', u'game_id', u'key', u'mode_name', u'num_batteries', u'num_leds', u'num_resistors', u'num_timers', u'player_name', u'player_names', u'playspace_id', u'playspace_ids', u'reason', u'resistance', u'session_token', u'timed_out', u'timestamp', u'updated_at', u'user_id', u'virtual_context', u'visability_mode', u'voltage', u'human-readable-timestamps', u'human-readable-timestamp'], dtype='object')
 ```
 
-Whoa! That is [alot of columns](http://hyperboleandahalf.blogspot.com/2010/04/alot-is-better-than-you-at-everything.html). 33 columns, to be exact. You might also be wondering why each column name starts with a "u," as in `u'num_leds'` and `u'_id`. That's actually because internally, [Python is representing those strings as Unicode strings](http://www.diveintopython3.net/strings.html#one-ring-to-rule-them-all) and it's [letting us know](https://docs.python.org/2/howto/unicode.html#the-unicode-type).
+Whoa! That is [alot of columns](http://hyperboleandahalf.blogspot.com/2010/04/alot-is-better-than-you-at-everything.html). 33 columns, to be exact. You might be wondering why each column name starts with a "u," as in `u'num_leds'` and `u'_id`. That's actually because internally, [Python is representing those strings as Unicode strings](http://www.diveintopython3.net/strings.html#one-ring-to-rule-them-all) and it's [letting us know](https://docs.python.org/2/howto/unicode.html#the-unicode-type).
 
-We can check the number of columns by calling Python's function for determining the length of a collection:
+We can double-check exactly how many columns are in our data by calling Python's function for determining the length of a collection:
 
 ```python
 len(ms.columns) # returns 33

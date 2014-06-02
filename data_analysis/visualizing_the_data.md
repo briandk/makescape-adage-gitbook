@@ -89,9 +89,9 @@ ms.groupby('key').count().sort(columns=['timestamp'], ascending=False)[timestamp
 
 Two things to note here. First, in the table above the numbers are *counts*. It's slightly confusing because the column title you'll get in output will be `timestamp` in our case, but what pandas is reporting is the number of `timestamp` events that match each key type in the left-hand column.
 
-Second, I'm using a pattern of programming called [method chaining](http://en.wikipedia.org/wiki/Method_chaining), which is a [common practice](https://github.com/mbostock/d3/wiki/Gallery) in other programming frameworks such as [d3](http://d3js.org/). In short, `ms` is a dataframe object, and I can call methods on it which will often dataframes. So, the `groupby()` function takes `ms` as input, returns a grouped dataframe, and passes that grouped dataframe as input to `.count()`. Another way of thinking of method chaining is that `a.b().c()` can be understand as the function composition `c(b(a))`.
+Second, I'm using a pattern of programming called [method chaining](http://en.wikipedia.org/wiki/Method_chaining), which is a [common practice](https://github.com/mbostock/d3/wiki/Gallery) in other programming frameworks such as [d3](http://d3js.org/). In short, `ms` is a dataframe object, when I call methods on it, those methods may return other objects which *also* have methods I might want to call in sequence. So, the `groupby()` function takes `ms` as input, returns a grouped dataframe, and passes that grouped dataframe as input to `.count()`. Another way of thinking of method chaining is that `a.b().c()` can be understand as the function composition $c(b(a))$.
 
-So, let's break down my line of code:
+So, let's break down my line of code from left to right:
 
 ```python
 ms.groupby('key').count().sort(columns=['timestamp'], ascending=False)[timestamp]
