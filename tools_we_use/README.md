@@ -44,7 +44,7 @@ We don't always depart from Python, but when we do we use R. R is a powerful, op
 - [Markdown](http://en.wikipedia.org/wiki/Markdown) and [RMarkdown](http://www.rstudio.com/ide/docs/authoring/using_markdown)
 - [Rpubs](https://rpubs.com/) (for R analyses)
 
-Markdown is a simplified markup syntax originally developed by [John Gruber](http://daringfireball.net/projects/markdown/) and [Aaron Shwartz](http://en.wikipedia.org/wiki/Aaron_Swartz). It's the backbone of all the text we write. (This entire book was written in Markdown!). We like it because it's a plaintext format that lets humans easily read and write rich text.
+Markdown is a simplified markup syntax originally developed by [John Gruber](http://daringfireball.net/projects/markdown/) and [Aaron Swartz](http://en.wikipedia.org/wiki/Aaron_Swartz). It's the backbone of all the text we write. (This entire book was written in Markdown!). We like it because it's a plaintext format that lets humans easily read and write rich text.
 
 Also, you'll notice some repeat tools here, and there's a good reason for that. All of the above tools work together for sharing our work. The general workflow is:
 
