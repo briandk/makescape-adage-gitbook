@@ -93,6 +93,10 @@ Second, I'm using a pattern of programming called [method chaining](http://en.wi
 
 So, let's break down my line of code:
 
+```python
+ms.groupby('key').count().sort(columns=['timestamp'], ascending=False)[timestamp]
+```
+
 - `ms` - take the `ms` dataframe, then
 - `groupby('key')` - group its data by key, then
 - `count()` - count the number of data items in each group, then
@@ -112,4 +116,8 @@ print(p)
 ```
 
 ![Bar chart of events by type](../assets/barChart1.png)
+
+### Houston, We Have a Problem
+
+A big one. Continue on to the next section to see why this bar chart is bad news.
 
