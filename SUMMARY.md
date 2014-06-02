@@ -8,4 +8,5 @@
    * [Why Are There So Many MakeConnectComponent Events?](data_analysis/why_are_there_so_many_makeconnectcomponent_events.md)
    * [Visualizing Events Over Time](data_analysis/visualizing_events_over_time.md)
    * [Working with Time Deltas](data_analysis/working_with_time_deltas.md)
+   * [Visualizing Time Deltas](data_analysis/visualizing_time_deltas.md)
 
