@@ -33,4 +33,4 @@ def loadDataSortedByTimestamp(filepath):
 ms = loadDataSortedByTimestamp(filepath)
 ```
 
-Now that our data is loaded with the variable `ms` (I chose it as an abbreviation of MakeScape), let's look at it and make sure it's sane.
+Now that our data is loaded with the variable `ms` (I chose it as an abbreviation of MakeScape), let's look at it and make sure it loaded properly and it makes sense.
