@@ -11,5 +11,5 @@
    * [Visualizing Time Deltas](data_analysis/visualizing_time_deltas.md)
 * [Conclusion](conclusion/README.md)
 * [Resources and Further Reading](resources_and_further_reading/README.md)
-* [Acknowledgments](acknowledgments/README)
+* [Acknowledgments](acknowledgments/README.md)
 
