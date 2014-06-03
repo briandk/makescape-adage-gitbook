@@ -8,11 +8,13 @@ In a new iPython Notebook:
 
 ```python
 import pandas as pd          # our core data analysis toolkit
-import pylab as pl           # our plotting library
+import numpy as np           # we'll use some timestamp functions
+import pylab as pl           # pylab and ggplot are plotting libraries
+from ggplot import *
 from pandas import read_json # a function for reading data in JSON files
 
 # This option shows our plots directly in iPython Notebooks
-%matplotlib inline
+%matplotlib inline 
 
 # This option gives a more pleasing visual style to our plots
 pd.set_option('display.mpl_style', 'default')
