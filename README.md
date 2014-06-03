@@ -1,8 +1,14 @@
-# Analyzing Oztoc Data
+# Analyzing Data with ADAGE
 
 In this book we walk you through a short analysis of some actual play data collected from our game: Oztoc.
 
-### What is Oztoc?
+### For Whom Is This Book?
+
+This book is aimed at anyone interested in studying data from learning games, whether they be graduate students, professional researchers, game designers, software engineers, or really anyone passionate about games. If you're completely new to programming, I recommend you check the [Resources](../resources_and_further_reading/README.html) section, where I include some helpful places to get started learning Python.
+
+But, I think anyone with an interest in analyzing gameplay data will find value in this book. We'll use real, actual data from our game (Oztoc), and along the way our analysis will reveal both the power of scriptable data analysis and the heartache of realizing that your data collection code might be buggy.
+
+### What Is Oztoc?
 
 An expedition in Mexico reveals an uncharted lagoon teeming with life, and it's up to junior explorers to learn more about its mysteries. Enter Oztoc: an immersive world where children design circuits to lure bioluminescent creatures from the deep.
 

@@ -9,4 +9,5 @@
    * [Visualizing Events Over Time](data_analysis/visualizing_events_over_time.md)
    * [Working with Time Deltas](data_analysis/working_with_time_deltas.md)
    * [Visualizing Time Deltas](data_analysis/visualizing_time_deltas.md)
+* [Resources and Further Reading](resources_and_further_reading/README.md)
 
