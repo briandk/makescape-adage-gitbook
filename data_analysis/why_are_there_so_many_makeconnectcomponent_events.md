@@ -52,7 +52,7 @@ That leads to Problem 1
 
 And not just a few more, *way* more. Almost three times more.
 
-$\frac{2609}{943} \approx 2.77$
+$$\frac{connects}{disconnects} = \frac{2609}{943} \approx 2.77$$
 
 If you think about it, this doesn't make sense at all.
 

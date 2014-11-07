@@ -2,9 +2,9 @@
 
 We're going to compute the time difference between successive events, which I'm calling *time deltas*. It's worth taking a second to think about how the delta is defined:
 
-For the $i$th event, the $\Delta$ value is given by the simple equation below, where $t_i$ is the timestamp of the $i$th event: 
+For the $$i$$th event, the $$\Delta$$ value is given by the simple equation below, where $$t_i$$ is the timestamp of the $$i$$th event:
 
-<object type="image/svg+xml" data="../assets/equation1.svg" height="100" width="200">Your browser does not support SVG</object>
+$$\Delta = t_i - t_{i-1}$$
 
 As a result, the very first event $(i = 0)$ in a series will have a diff value of `NaN` or `NaT` (Not a Time), because the -1st event is undefined. But the second event will have a diff value of (Time of Second event - Time of First event). The very last event will also have a value: (Time of Last event - Time of Penultimate event).
 

@@ -4,7 +4,7 @@ So, we know the *distribution* of `MakeConnectComponent` events is uneven. We kn
 
 To do that, we're going to use a visualization called a [kernel density estimate](http://en.wikipedia.org/wiki/Kernel_density_estimate). Essentially, what we're doing is creating a smoothed empirical approximation of what the distributions of events look like.
 
-We're also going to use another powerful feature of graphical analysis: what statistician [Bill Cleveland][http://cm.bell-labs.com/cm/ms/departments/sia/wsc/] and [Edward Tufte](http://www.amazon.com/The-Visual-Display-Quantitative-Information/dp/0961392142/ref=sr_1_1?ie=UTF8&qid=1401770677&sr=8-1&keywords=visual+display+of+quantitative+information) call "[small multiples](http://www.juiceanalytics.com/writing/better-know-visualization-small-multiples)." We're actually going to take a look at the distributions of time deltas for the top 5 most frequent kinds of events and graphically compare them. And, we'll plot them all on the same scales using a ggplot feature called `facet_wrap()`.
+We're also going to use another powerful feature of graphical analysis: what statistician [Bill Cleveland](http://cm.bell-labs.com/cm/ms/departments/sia/wsc/) and [Edward Tufte](http://www.amazon.com/The-Visual-Display-Quantitative-Information/dp/0961392142/ref=sr_1_1?ie=UTF8&qid=1401770677&sr=8-1&keywords=visual+display+of+quantitative+information) call "[small multiples](http://www.juiceanalytics.com/writing/better-know-visualization-small-multiples)." We're actually going to take a look at the distributions of time deltas for the top 5 most frequent kinds of events and graphically compare them. And, we'll plot them all on the same scales using a ggplot feature called `facet_wrap()`.
 
 ```python
 topFive = loadDataSortedByTimestamp(filepath)
@@ -32,7 +32,7 @@ ggsave(plot=p,
 
 ![Small multiples of kernel density estimates](../assets/kernelDensityEstimate.png)
 
-Two features stand out when we look at this set of small multiples. First, there is a huge variation in the shapes of the distributions themselves. `MakeSnapshot` and `MakeAddComponent` are almost completely flat. The other distributions, meanwhile, have most of their bulk concentrated in short time intervals. 
+Two features stand out when we look at this set of small multiples. First, there is a huge variation in the shapes of the distributions themselves. `MakeSnapshot` and `MakeAddComponent` are almost completely flat. The other distributions, meanwhile, have most of their bulk concentrated in short time intervals.
 
 Second, if we look closely, it might be the case most of the `MakeConnectComponent` events occur within a short duration of one another, because that distribution has much of its meat in about the 1000ms (or 1s) delta range. Now, it's hard to tell because of the scale—`MakeDisconnectComponent` looks much sharper and seems to hug closer to 0 on the x-axis—but remember there are many, many more `MakeComponentEvents`.
 
@@ -51,18 +51,18 @@ p = ggplot(aes(x='delta1',
         ylab('Number of Events') + \
         xlab('Time Between Events (ms)')
 print(p)
-ggsave(plot=p, 
+ggsave(plot=p,
        filename='histogram2.png')
 ```
 
 ![histogram of time delta distributions](../assets/histogram2.png)
 
-This plot is our smoking gun, and I'll explain why. Remember, what we've done is 
+This plot is our smoking gun, and I'll explain why. Remember, what we've done is
 
-- Take only the `MakeConnectComponent` events;  
-- Use `diff()` to compute the *time deltas* (`diff1`), the amount of time that passes between one `MakeComponentConnect` event and the next; 
-- Arrange those time deltas in bins according to how large thed deltas are. 
- 
+- Take only the `MakeConnectComponent` events;
+- Use `diff()` to compute the *time deltas* (`diff1`), the amount of time that passes between one `MakeComponentConnect` event and the next;
+- Arrange those time deltas in bins according to how large thed deltas are.
+
 Every time a time delta goes in a bin, the stack for that bin gets a little bit higher. The highest stack in this plot, by an obscene margin, is the stack of deltas that represent 50ms or fewer passing between successive `MakeConnectComponent` events.
 
 Let's put that another way. This histogram's x axis goes from 0ms to 1000ms in time deltas, which means it plots about 1744 of the total 2609 `MakeConnectComponent` events:

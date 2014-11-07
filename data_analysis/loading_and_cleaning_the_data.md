@@ -14,7 +14,7 @@ from ggplot import *
 from pandas import read_json # a function for reading data in JSON files
 
 # This option shows our plots directly in iPython Notebooks
-%matplotlib inline 
+%matplotlib inline
 
 # This option gives a more pleasing visual style to our plots
 pd.set_option('display.mpl_style', 'default')

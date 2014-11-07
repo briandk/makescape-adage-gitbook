@@ -110,7 +110,7 @@ It seems like one big ol' line of code, but it's actually a complex stepwise pro
 Now, if we'd prefer to *visualize* our data, we can actually do so quite easily. Here, we'll make a bar chart of the types of events in our data and how many of each type are in the dataset:
 
 ```python
-msdata = ms.groupby('key').count().sort(columns=['timestamp', 'key'], ascending=False)
+msdata = ms.groupby('key').count().sort(columns=['timestamp'], ascending=False)
 p = msdata['timestamp'].plot(kind='bar')
 print(p)
 ```
