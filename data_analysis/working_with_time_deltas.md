@@ -6,7 +6,7 @@ For the $$i$$th event, the $$\Delta$$ value is given by the simple equation belo
 
 $$\Delta = t_i - t_{i-1}$$
 
-As a result, the very first event $(i = 0)$ in a series will have a diff value of `NaN` or `NaT` (Not a Time), because the -1st event is undefined. But the second event will have a diff value of (Time of Second event - Time of First event). The very last event will also have a value: (Time of Last event - Time of Penultimate event).
+As a result, the very first event $$(i = 0)$$ in a series will have a diff value of `NaN` or `NaT` (Not a Time), because the -1st event $$(i = -1)$$ is undefined . But the second event will have a diff value of (Time of Second event - Time of First event). The very last event will also have a value: (Time of Last event - Time of Penultimate event).
 
 The handy thing about pandas is that every data series (and a column counts as data series) has a `diff()` method, which does exactly what we want: it computes successive pairwise differences between events. If we apply the `.diff()` function to our timestamps, we'll have exactly what we want: a column of numbers where each number represents the time elapsed since the event that came before.
 
